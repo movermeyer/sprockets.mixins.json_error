@@ -21,9 +21,11 @@ class CustomExceptionRequestHandler(
     class FailureError(Exception):
 
         status_code = 400
-        log_message = 'Too much Foo'
         error_type = 'FailureError'
         documentation_url = 'http://www.example.com'
+
+        def get_message(self):
+            return 'Too much Foo'
 
     def get(self):
         raise self.FailureError()
@@ -43,7 +45,7 @@ class TestHTTPError(testing.AsyncHTTPTestCase):
 
     def test_tornado_thrown_exception(self):
         response = self.fetch('/')
-        expected = {'message': 'Error Reason', 'type': 'Bad Request'}
+        expected = {'message': 'Unexpected Error', 'type': 'Bad Request'}
         self.assertEqual(json.loads(response.body), expected)
 
 

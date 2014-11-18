@@ -9,6 +9,7 @@ __version__ = '.'.join(str(v) for v in version_info)
 
 
 class JsonErrorMixin(object):
+    """Mixin to write errors as JSON."""
 
     def write_error(self, status_code, **kwargs):
         """Suppress the automatic rendering of HTML code upon an error.
@@ -22,14 +23,14 @@ class JsonErrorMixin(object):
                 object.
 
         """
-        if kwargs.get('error'):
-            raised_error = kwargs.get('error')
-        else:
-            _, raised_error, _ = kwargs['exc_info']
+        _, raised_error, _ = kwargs.get('exc_info', (None, None))
 
-        error_message = getattr(
-            raised_error, 'log_message', 'Unexpected Error')
         error_type = getattr(raised_error, 'error_type', self._reason)
+
+        try:
+            error_message = raised_error.get_message()
+        except AttributeError:
+            error_message = 'Unexpected Error'
 
         self.error = {
             'message': error_message,
@@ -37,9 +38,6 @@ class JsonErrorMixin(object):
         }
         if hasattr(raised_error, 'documentation_url'):
             self.error['documentation_url'] = raised_error.documentation_url
-
-        error_status_code = getattr(raised_error, 'status_code', status_code)
-        self.set_status(error_status_code)
 
         self.set_header('Content-Type', 'application/json; charset=UTF-8')
         self.finish(self.error)
