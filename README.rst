@@ -24,12 +24,30 @@ Requirements
 
 Example
 -------
-This examples demonstrates how to use ``sprockets.mixins.json_error`` by ...
+This examples demonstrates how to use ``sprockets.mixins.json_error`` to format
+errors as JSON.
+
 .. code:: python
 
     from sprockets import mixins.json_error
+    from tornado import web
 
-    # Example here
+    class MyRequestHandler(json_error.JsonErrorMixin,
+                           web.RequestHandler):
+
+        def get(self, *args, **kwargs):
+            raise web.HTTPError(404, log_message='My reason')
+
+
+The response from the handler will automatically be formatted as:
+
+.. code:: json
+
+    {
+        "message": "My reason",
+        "type": "Not Found"
+    }
+
 
 Version History
 ---------------
