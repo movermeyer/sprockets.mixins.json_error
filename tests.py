@@ -46,7 +46,7 @@ class TestHTTPError(testing.AsyncHTTPTestCase):
     def test_tornado_thrown_exception(self):
         response = self.fetch('/')
         expected = {'message': 'Unexpected Error', 'type': 'Bad Request'}
-        self.assertEqual(json.loads(response.body), expected)
+        self.assertEqual(json.loads(response.body.decode('utf-8')), expected)
 
 
 class TestCustomExceptions(testing.AsyncHTTPTestCase):
@@ -61,7 +61,7 @@ class TestCustomExceptions(testing.AsyncHTTPTestCase):
             'type': 'FailureError',
             'documentation_url': 'http://www.example.com',
         }
-        self.assertEqual(json.loads(response.body), expected)
+        self.assertEqual(json.loads(response.body.decode('utf-8')), expected)
 
 
 class TestUnexpectedError(testing.AsyncHTTPTestCase):
@@ -75,4 +75,4 @@ class TestUnexpectedError(testing.AsyncHTTPTestCase):
             'message': 'Unexpected Error',
             'type': 'Internal Server Error'
         }
-        self.assertEqual(json.loads(response.body), expected)
+        self.assertEqual(json.loads(response.body.decode('utf-8')), expected)
