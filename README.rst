@@ -32,7 +32,7 @@ errors as JSON.
     from sprockets import mixins.json_error
     from tornado import web
 
-    class MyRequestHandler(statsd.RequestMetricsMixin,
+    class MyRequestHandler(json_error.JsonErrorMixin,
                            web.RequestHandler):
 
         def get(self, *args, **kwargs):
