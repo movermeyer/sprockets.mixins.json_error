@@ -23,7 +23,7 @@ class JsonErrorMixin(object):
                 object.
 
         """
-        _, raised_error, _ = kwargs.get('exc_info', (None, None))
+        _, raised_error, _ = kwargs.get('exc_info', (None, None, None))
 
         error_type = getattr(raised_error, 'error_type', self._reason)
 
