@@ -18,10 +18,11 @@ after_success:
 deploy:
   distributions: sdist bdist_wheel
   provider: pypi
-  on:
-    python: 2.7
-    tags: true
-    all_branches: true
   user: sprockets
   password:
-    secure: [REPLACE-ME]
+    secure: JlbJc6qhq83Ua7Wi6kVX3AwRVjeVWDnb1Jphrjf9a+CLePx3OkErcYpXBF9eTqT+n/4+bpoPMqZEL7DkEtRy+EtHdbuafVAAbaIrz2YJqZ5eKvwov/OFk5gIgS4pBRXZFs96dc9rE1uthYSTSjODtobFGi/BjtxoxqOzn6E/OnY=
+  on:
+    tags: true
+    repo: sprockets/sprockets.mixins.json_error
+    python: 2.7
+    all_branches: true
