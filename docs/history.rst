@@ -1,5 +1,4 @@
 Version History
 ---------------
-- 0.0.0 [YYYY-MM-DD]
- - Change 1
- - Change 2
+- 1.0.0 [2014-11-20]
+ - Initial release

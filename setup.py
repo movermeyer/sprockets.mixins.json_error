@@ -29,7 +29,7 @@ if sys.version_info < (3, 0):
 
 setuptools.setup(
     name='sprockets.mixins.json_error',
-    version='0.0.0',
+    version='1.0.0',
     description='Handler mixin for writing JSON errors',
     long_description=codecs.open('README.rst', encoding='utf-8').read(),
     url='https://github.com/sprockets/sprockets.mixins.json_error.git',
