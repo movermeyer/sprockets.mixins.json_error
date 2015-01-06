@@ -15,6 +15,7 @@ install:
 script: nosetests
 after_success:
   - coveralls
+sudo: False
 deploy:
   distributions: sdist bdist_wheel
   provider: pypi
