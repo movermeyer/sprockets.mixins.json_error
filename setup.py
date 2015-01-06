@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import codecs
 import sys
 
@@ -32,7 +33,7 @@ setuptools.setup(
     version='1.0.0',
     description='Handler mixin for writing JSON errors',
     long_description=codecs.open('README.rst', encoding='utf-8').read(),
-    url='https://github.com/sprockets/sprockets.mixins.json_error.git',
+    url='https://github.com/sprockets/sprockets.mixins.json_error',
     author='AWeber Communications',
     author_email='api@aweber.com',
     license=codecs.open('LICENSE', encoding='utf-8').read(),
@@ -54,15 +55,13 @@ setuptools.setup(
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules'
     ],
-    packages=['sprockets',
-              'sprockets.mixins',
-              'sprockets.mixins.json_error'],
+    packages=setuptools.find_packages(),
     package_data={'': ['LICENSE', 'README.md']},
     include_package_data=True,
-    namespace_packages=['sprockets',
-                        'sprockets.mixins'],
+    namespace_packages=['sprockets', 'sprockets.mixins'],
     install_requires=install_requires,
     setup_requires=setup_requires,
     tests_require=tests_require,
     test_suite='nose.collector',
-    zip_safe=False)
+    zip_safe=True,
+)
