@@ -62,8 +62,8 @@ Available at https://sprocketsmixinsjson_error.readthedocs.org/en/latest/history
 .. |Coverage| image:: https://img.shields.io/coveralls/sprockets/sprockets.mixins.json_error.svg?
    :target: https://coveralls.io/r/sprockets/sprockets.mixins.json_error
 
-.. |Downloads| image:: https://pypip.in/d/sprockets.mixins.json_error/badge.svg?
+.. |Downloads| image:: https://img.shields.io/pypi/dm/sprockets.mixins.json_error.svg
    :target: https://pypi.python.org/pypi/sprockets.mixins.json_error
 
-.. |License| image:: https://pypip.in/license/sprockets.mixins.json_error/badge.svg?
+.. |License| image:: https://img.shields.io/pypi/l/sprockets.mixins.json_error.svg
    :target: https://sprocketsmixinsjson_error.readthedocs.org
